@@ -10,7 +10,7 @@ initialState =
 todos = handleActions
 
   TODOS_SAVE: todosReducers.save
-  TODOS_CREATE_ONE: todosReducers.create
+  TODOS_CREATE: todosReducers.create
   TODOS_FETCH_ONE: todosReducers.fetchOne
   TODOS_PATCH: todosReducers.patch
   TODOS_REMOVE_ONE: todosReducers.removeOne

@@ -4,7 +4,6 @@ export default toActionsTypes {
   'TODOS_SAVE'
 
   'TODOS_CREATE'
-  'TODOS_CREATE_ONE'
   'TODOS_FETCH'
   'TODOS_FETCH_ONE'
   'TODOS_PATCH'

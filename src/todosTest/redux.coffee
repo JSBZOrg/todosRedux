@@ -52,21 +52,21 @@ reducersFuc = ->
   uuid_02 = uuidFunc()
   uuid_03 = uuidFunc()
   
-  myStore.dispatch actions.todosCreateOne
+  myStore.dispatch actions.todosCreate
     todo:
       id: uuid_01
       company: '武汉举手帮租有限公司'
       main: '旅游、租房'
       location: '武汉'
 
-  myStore.dispatch actions.todosCreateOne
+  myStore.dispatch actions.todosCreate
     todo:
       id: uuid_02
       company: '杭州阿里巴巴有限公司'
       main: '电商'
       location: '杭州'
 
-  myStore.dispatch actions.todosCreateOne
+  myStore.dispatch actions.todosCreate
     todo:
       id: uuid_03
       company: '深圳大疆科技有限公司'
