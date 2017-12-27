@@ -1,7 +1,7 @@
 import axios from 'axios'
 import dd from 'ddeyes'
 
-export default toolFuc = (
+export default toolFunc = (
   uri
   {
     method

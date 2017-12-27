@@ -1,4 +1,4 @@
 import uuid from 'uuid'
 
-export default uuidFuc = () ->
+export default uuidFunc = () ->
   uuid()

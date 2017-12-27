@@ -5,54 +5,82 @@ export default
     state
     {
       payload: {
-        data: todos
+        todo: todo
       }
     }
   ) =>
-    todos
+    todo
   
   create:(
     state
     {
       payload: {
-        data: todos
+        todo: todo
       }
     }
   ) =>
-    todos
+    [
+      state...
+      todo
+    ]
   
-  fetch:(
+  removeOne:(
     state
     {
       payload: {
-        uuid: uuid
+        id
       }
     }
   ) =>
-    if uuid is state[0].uuid
-      state
-    else
-      return '查找失败！'
-
+    for i of state
+      if state[i].id is id
+        index = state.indexOf state[i]
+        if index isnt -1
+          temp = JSON.parse JSON.stringify state
+          temp.splice index, 1
+    temp
+          
   patch:(
     state
     {
       payload: {
-        data: todos
+        todo: todo
       }
     }
   ) =>
-    if todos[0].uuid is state[0].uuid
-      todos
-    else
-      return '更新失败！'
+    for i of state
+      if state[i].id is todo.id
+        index = state.indexOf state[i]
+        if index isnt -1
+          temp = JSON.parse JSON.stringify state
+          temp.splice index, 1
+    [
+      todo
+      temp...
+    ]
+  
+  fetchOne:(
+    state
+    {
+      payload: {
+        id
+      }
+    }
+  ) =>
+    for i of state
+      if state[i].id is id
+        index = state.indexOf state[i]
+        if index isnt -1
+          temp = JSON.parse JSON.stringify state
+    temp.splice index, 1      
+    
   
   remove:(
     state
     {
       payload: {
-        data: todos
+        todo: todo
       }
     }
   ) =>
-    todos
+    todo

@@ -3,6 +3,6 @@ export {
   services,
   store,
   config,
-  toolFuc,
-  uuidFuc
+  toolFunc,
+  uuidFunc
 } from 'src'

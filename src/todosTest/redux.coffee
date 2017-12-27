@@ -1,6 +1,6 @@
 import dd from 'ddeyes'
 import isEqual from 'is-equal'
-import uuidFuc from '../utils/randomId'
+import uuidFunc from '../utils/randomId'
 import * as store from '../store'
 
 {
@@ -39,6 +39,7 @@ staticFuc = ->
 
 # reducers 
 reducersFuc = ->
+
   myStore = getStore {
     appName: 'todosApp'
     reducers
@@ -47,30 +48,65 @@ reducersFuc = ->
         dd myStore.getState()
   }
 
-  myStore.dispatch actions.todosCreate
-    data: [
-      uuid: uuidFuc()
+  uuid_01 = uuidFunc()
+  uuid_02 = uuidFunc()
+  uuid_03 = uuidFunc()
+  
+  myStore.dispatch actions.todosCreateOne
+    todo:
+      id: uuid_01
       company: '武汉举手帮租有限公司'
       main: '旅游、租房'
       location: '武汉'
-    ]
 
-  myStore.dispatch actions.todosFetch
-    uuid: myStore.getState().todosApp.todos[0].uuid
-
-  myStore.dispatch actions.todosPatch
-    data: [
-      uuid: myStore.getState().todosApp.todos[0].uuid
+  myStore.dispatch actions.todosCreateOne
+    todo:
+      id: uuid_02
       company: '杭州阿里巴巴有限公司'
       main: '电商'
       location: '杭州'
-    ]
+
+  myStore.dispatch actions.todosCreateOne
+    todo:
+      id: uuid_03
+      company: '深圳大疆科技有限公司'
+      main: '无人机'
+      location: '深圳'
   
+  myStore.dispatch actions.todosRemoveOne
+    id: uuid_02
+
+  myStore.dispatch actions.todosPatch
+    todo:
+      id: uuid_01
+      company: '举手帮租集团'
+      main: '金融各个领域'
+      location: '全球'
+
+  myStore.dispatch actions.todosSave
+    todo: myStore.getState().todosApp.todos
+
+  myStore.dispatch actions.todosFetchOne
+    id: uuid_01
+
   myStore.dispatch actions.todosRemove
-    data: []
+    todo: []
 
   myStore.onsubscribe()
+  
+  # myStore.dispatch actions.todosFetch
+  #   id: uuidOne
 
+  # # one
+  # myStore.dispatch actions.todosPatch
+  #   todo:
+  #     id: uuidOne
+  #     company: '杭州阿里巴巴有限公司'
+  #     main: '电商'
+  #     location: '杭州'
+  
+  # myStore.dispatch actions.todosRemove
+  #   data: []
 
 # create class  
 createFuc = ->

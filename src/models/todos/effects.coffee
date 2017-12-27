@@ -1,7 +1,7 @@
 import dd from 'ddeyes'
 import config from '../../services/config'
 import services from '../../services'
-import toolFuc from '../../utils/helper'
+import toolFunc from '../../utils/helper'
 
 export default ({
   type
@@ -12,7 +12,7 @@ export default ({
     }
     { put }
   ) ->
-    data = yield services.lc.create toolFuc
+    data = yield services.lc.create toolFunc
     ,
       payload.data
     if data?
@@ -32,7 +32,7 @@ export default ({
     }
     { put }
   ) ->
-    data = yield services.lc.fetch toolFuc
+    data = yield services.lc.fetch toolFunc
     ,
       payload.data
     if data?
@@ -52,7 +52,7 @@ export default ({
     }
     { put }
   ) ->
-    data = yield services.lc.patch toolFuc
+    data = yield services.lc.patch toolFunc
     ,
       payload.data
     if data?
@@ -72,7 +72,7 @@ export default ({
     }
     { put }
   ) ->
-    data = yield services.lc.reload toolFuc
+    data = yield services.lc.reload toolFunc
     if data?
       yield put 
         type: type.save
@@ -90,7 +90,7 @@ export default ({
     }
     { put }
   ) ->
-    data = yield services.lc.remove toolFuc
+    data = yield services.lc.remove toolFunc
     ,
       payload
     yield put 
