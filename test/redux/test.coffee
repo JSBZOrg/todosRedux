@@ -1,6 +1,6 @@
 import dd from 'ddeyes'
 import 'shelljs/make'
-import todosRedux from '../../src/todosTest/redux'
+import todosRedux from '../todosTest/redux'
 
 target.all = ->
   dd 'Hello todosRedux ！'

@@ -1,6 +1,6 @@
 import dd from 'ddeyes'
-import toolFunc from '../utils/helper'
-import services from '../services'
+import toolFunc from '../../src/utils/helper'
+import services from '../../src/services'
 
 export default leanCloudService = ->
   # create todo

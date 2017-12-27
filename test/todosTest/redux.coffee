@@ -1,7 +1,7 @@
 import dd from 'ddeyes'
 import isEqual from 'is-equal'
-import uuidFunc from '../utils/randomId'
-import * as store from '../store'
+import uuidFunc from '../../src/utils/randomId'
+import * as store from '../../src/store'
 
 {
   constants
