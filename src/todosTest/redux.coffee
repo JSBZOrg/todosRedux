@@ -94,20 +94,6 @@ reducersFuc = ->
 
   myStore.onsubscribe()
   
-  # myStore.dispatch actions.todosFetch
-  #   id: uuidOne
-
-  # # one
-  # myStore.dispatch actions.todosPatch
-  #   todo:
-  #     id: uuidOne
-  #     company: '杭州阿里巴巴有限公司'
-  #     main: '电商'
-  #     location: '杭州'
-  
-  # myStore.dispatch actions.todosRemove
-  #   data: []
-
 # create class  
 createFuc = ->
   new Promise (resolve, reject) ->
