@@ -12,6 +12,21 @@ export default
   ) =>
     todo
   
+  # create:(
+  #   state
+  #   {
+  #     payload: {
+  #       todo: todo
+  #     }
+  #   }
+  # ) =>
+  #   [
+  #     state...
+  #     id: uuidFunc()
+  #     todo: todo
+  #     isCompleted: false
+  #   ]
+
   create:(
     state
     {
@@ -22,9 +37,7 @@ export default
   ) =>
     [
       state...
-      id: uuidFunc()
-      todo: todo
-      isCompleted: false
+      todo
     ]
   
   removeOne:(

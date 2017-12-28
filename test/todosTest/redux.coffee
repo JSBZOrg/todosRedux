@@ -47,9 +47,15 @@ reducersFuc = ->
         dd myStore.getState()
   }
   
-  myStore.dispatch actions.todosCreate
-    todo: todo
+  # myStore.dispatch actions.todosCreate
+  #   todo: todo
   
+  myStore.dispatch actions.todosCreate
+    todo: 
+      id: uuidFunc()
+      data: todo
+      isCompleted: false
+
   myStore.dispatch actions.todosRemoveOne
     id: id
 
