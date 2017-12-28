@@ -11,7 +11,7 @@ export default
     }
   ) =>
     todo
-  
+
   create:(
     state
     {
@@ -35,13 +35,13 @@ export default
       }
     }
   ) =>
-    for i of state
-      if state[i].id is id
-        index = state.indexOf state[i]
-        if index isnt -1
-          temp = JSON.parse JSON.stringify state
-          temp.splice index, 1
-    temp
+    temp = []
+    state.reduce (result, current, _index, array) =>  
+      if current.id is id
+        temp = JSON.parse JSON.stringify array
+        temp.splice _index, 1
+      temp
+    , null
           
   patch:(
     state
@@ -52,47 +52,19 @@ export default
       }
     }
   ) =>
-    for i of state
-      if state[i].id is id
-        index = state.indexOf state[i]
-        if index isnt -1
-          temp = JSON.parse JSON.stringify state
-          temp.splice index, 1
+    temp = []
+    state.reduce (result, current, _index, array) =>  
+      if current.id is id
+        temp = JSON.parse JSON.stringify array
+        temp.splice _index, 1
+      temp
+    , null
+
     [
       todo
       temp...
     ]
-  
-  fetchOne:(
-    state
-    {
-      payload: {
-        id
-      }
-    }
-  ) =>
-    for i of state
-      if state[i].id is id
-        index = state.indexOf state[i]
-        if index isnt -1
-          temp = JSON.parse JSON.stringify state
-    temp.splice index, 1      
     
-  fetch:(
-    state
-    {
-      payload: {
-        todo: []
-      }
-    }
-  ) =>
-    state.reduce (r, c) =>
-      [
-        r...
-        c
-      ]
-    , []
-
   remove:(
     state
     {

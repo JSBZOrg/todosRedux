@@ -49,32 +49,23 @@ reducersFuc = ->
   }
   
   myStore.dispatch actions.todosCreate
-    todo: 'todo'
+    todo: 'hhhh'
 
   myStore.dispatch actions.todosCreate
-    todo: 'aaa'
+    todo: 'kkkk'
 
   myStore.dispatch actions.todosCreate
-    todo: 'bbb'
+    todo: 'jjj'
 
-  myStore.dispatch actions.todosCreate
-    todo: 'ccc'    
+  myStore.dispatch actions.todosRemoveOne
+    id: id
 
-  myStore.dispatch actions.todosFetch
-    todo: [] 
-    
-  # myStore.dispatch actions.todosRemoveOne
-  #   id: id
-
-  # myStore.dispatch actions.todosPatch
-  #   id: id
-  #   todo: todo
+  myStore.dispatch actions.todosPatch
+    id: id
+    todo: todo
       
-  # myStore.dispatch actions.todosSave
-  #   todo: todo
-
-  # myStore.dispatch actions.todosFetchOne
-  #   id: id
+  myStore.dispatch actions.todosSave
+    todo: todo
 
   myStore.dispatch actions.todosRemove
     todo: []
