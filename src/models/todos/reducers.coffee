@@ -12,21 +12,6 @@ export default
   ) =>
     todo
   
-  # create:(
-  #   state
-  #   {
-  #     payload: {
-  #       todo: todo
-  #     }
-  #   }
-  # ) =>
-  #   [
-  #     state...
-  #     id: uuidFunc()
-  #     todo: todo
-  #     isCompleted: false
-  #   ]
-
   create:(
     state
     {
@@ -37,7 +22,9 @@ export default
   ) =>
     [
       state...
-      todo
+      id: uuidFunc()
+      todo: todo
+      isCompleted: false
     ]
   
   removeOne:(
@@ -91,13 +78,27 @@ export default
           temp = JSON.parse JSON.stringify state
     temp.splice index, 1      
     
-  
+  fetch:(
+    state
+    {
+      payload: {
+        todo: []
+      }
+    }
+  ) =>
+    state.reduce (r, c) =>
+      [
+        r...
+        c
+      ]
+    , []
+
   remove:(
     state
     {
       payload: {
-        todo: todo
+        todo: []
       }
     }
   ) =>
-    todo
+    []
