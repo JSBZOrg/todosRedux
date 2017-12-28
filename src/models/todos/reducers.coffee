@@ -1,4 +1,5 @@
 import dd from 'ddeyes'
+import uuidFunc from '../../utils/randomId'
 
 export default
   save: (
@@ -21,7 +22,9 @@ export default
   ) =>
     [
       state...
-      todo
+      id: uuidFunc()
+      todo: todo
+      isCompleted: false
     ]
   
   removeOne:(
@@ -44,12 +47,13 @@ export default
     state
     {
       payload: {
+        id: id
         todo: todo
       }
     }
   ) =>
     for i of state
-      if state[i].id is todo.id
+      if state[i].id is id
         index = state.indexOf state[i]
         if index isnt -1
           temp = JSON.parse JSON.stringify state

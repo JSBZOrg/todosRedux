@@ -1,6 +1,5 @@
 import dd from 'ddeyes'
 import isEqual from 'is-equal'
-import uuidFunc from '../../src/utils/randomId'
 import * as store from '../../src/store'
 
 {
@@ -47,47 +46,22 @@ reducersFuc = ->
       sync: ->
         dd myStore.getState()
   }
-
-  uuid_01 = uuidFunc()
-  uuid_02 = uuidFunc()
-  uuid_03 = uuidFunc()
   
   myStore.dispatch actions.todosCreate
-    todo:
-      id: uuid_01
-      company: '武汉举手帮租有限公司'
-      main: '旅游、租房'
-      location: '武汉'
-
-  myStore.dispatch actions.todosCreate
-    todo:
-      id: uuid_02
-      company: '杭州阿里巴巴有限公司'
-      main: '电商'
-      location: '杭州'
-
-  myStore.dispatch actions.todosCreate
-    todo:
-      id: uuid_03
-      company: '深圳大疆科技有限公司'
-      main: '无人机'
-      location: '深圳'
+    todo: todo
   
   myStore.dispatch actions.todosRemoveOne
-    id: uuid_02
+    id: id
 
   myStore.dispatch actions.todosPatch
-    todo:
-      id: uuid_01
-      company: '举手帮租集团'
-      main: '金融各个领域'
-      location: '全球'
-
+    id: id
+    todo: todo
+      
   myStore.dispatch actions.todosSave
-    todo: myStore.getState().todosApp.todos
+    todo: todo
 
   myStore.dispatch actions.todosFetchOne
-    id: uuid_01
+    id: id
 
   myStore.dispatch actions.todosRemove
     todo: []
