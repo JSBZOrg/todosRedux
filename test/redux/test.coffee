@@ -3,7 +3,7 @@ import 'shelljs/make'
 import todosRedux from '../todosTest/redux'
 
 target.all = ->
-  dd 'Hello todosRedux ！'
+  dd 'Hello todosApp ！'
 
 target.static = ->
   todosRedux.staticFuc()

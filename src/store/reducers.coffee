@@ -5,7 +5,7 @@ import todosReducers from '../models/todos/reducers'
 import dd from 'ddeyes'
 
 initialState =
-  list_todos: []
+  todos: []
 
 todos = handleActions
 
@@ -18,7 +18,7 @@ todos = handleActions
   TODOS_REMOVE: todosReducers.remove
   
 
-, initialState.list_todos
+, initialState.todos
 
 export {
   todos

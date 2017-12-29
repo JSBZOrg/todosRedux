@@ -9,7 +9,7 @@ import {
 } from './reducers'
 
 store = getStore {
-  appName: 'todosRedux'
+  appName: 'todosApp'
   reducers
   sagas
 }
