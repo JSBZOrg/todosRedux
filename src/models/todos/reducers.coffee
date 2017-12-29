@@ -27,21 +27,35 @@ export default
       isCompleted: false
     ]
   
+  # create:(
+  #   state
+  #   {
+  #     payload: {
+  #       todo: todo
+  #     }
+  #   }
+  # ) =>
+  #   [
+  #     state...
+  #     todo
+  #   ]
+
   removeOne:(
     state
     {
       payload: {
-        id
+        id: id
       }
     }
   ) =>
-    state.reduce (result, current, _index, array) => 
-      temp = []      
+    temp = []          
+    state.reduce (result, current, _index, array) =>                 
       if current.id is id
         temp = JSON.parse JSON.stringify array
         temp.splice _index, 1
-        temp
-    , null
+      temp
+    , state
+
           
   patch:(
     state
@@ -52,12 +66,12 @@ export default
       }
     }
   ) =>
+    temp = []           
     state.reduce (result, current, _index, array) => 
-      temp = []       
       if current.id is id
         temp = JSON.parse JSON.stringify array
         temp.splice _index, 1
-        temp
+      temp
     , null
 
     [

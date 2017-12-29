@@ -47,28 +47,37 @@ reducersFuc = ->
       sync: ->
         dd myStore.getState()
   }
+  id01 = uuidFunc()
+  id02 = uuidFunc()
+  id03 = uuidFunc()
   
   myStore.dispatch actions.todosCreate
-    todo: 'hhhh'
+    todo: 
+      id: id01
+      name: 'oo'
 
   myStore.dispatch actions.todosCreate
-    todo: 'kkkk'
+    todo: 
+      id: id02
+      name: 'oooopp'
 
   myStore.dispatch actions.todosCreate
-    todo: 'jjj'
+    todo: 
+      id: id03
+      name: 'ooll'
 
   myStore.dispatch actions.todosRemoveOne
-    id: id
+    id: id02
 
-  myStore.dispatch actions.todosPatch
-    id: id
-    todo: todo
+  # myStore.dispatch actions.todosPatch
+  #   id: id
+  #   todo: todo
       
-  myStore.dispatch actions.todosSave
-    todo: todo
+  # myStore.dispatch actions.todosSave
+  #   todo: todo
 
-  myStore.dispatch actions.todosRemove
-    todo: []
+  # myStore.dispatch actions.todosRemove
+  #   todo: []
 
   myStore.onsubscribe()
   
