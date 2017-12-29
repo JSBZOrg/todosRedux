@@ -35,12 +35,12 @@ export default
       }
     }
   ) =>
-    temp = []
-    state.reduce (result, current, _index, array) =>  
+    state.reduce (result, current, _index, array) => 
+      temp = []      
       if current.id is id
         temp = JSON.parse JSON.stringify array
         temp.splice _index, 1
-      temp
+        temp
     , null
           
   patch:(
@@ -52,12 +52,12 @@ export default
       }
     }
   ) =>
-    temp = []
-    state.reduce (result, current, _index, array) =>  
+    state.reduce (result, current, _index, array) => 
+      temp = []       
       if current.id is id
         temp = JSON.parse JSON.stringify array
         temp.splice _index, 1
-      temp
+        temp
     , null
 
     [
