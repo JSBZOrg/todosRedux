@@ -17,7 +17,7 @@ export default leanCloudService = ->
     objectId: results.objectId
   dd data_fetch
 
-  # patch todo
+  # patch todo ..
   data_patch = await services.lc.patch toolFunc
   ,
     objectId: results.objectId
