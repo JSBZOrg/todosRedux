@@ -54,12 +54,14 @@ reducersFuc = ->
   myStore.dispatch actions.todosCreate
     todo:
       id: id01
-      name: 'oo'
+      todo: 'oo'
+      isCompleted: true
 
-  # myStore.dispatch actions.todosCreate
-  #   todo:
-  #     id: id02
-  #     name: 'oooopp'
+  myStore.dispatch actions.todosCreate
+    todo:
+      id: id02
+      todo: 'oooopp'
+      isCompleted: false      
 
   # myStore.dispatch actions.todosCreate
   #   todo: 
@@ -72,6 +74,7 @@ reducersFuc = ->
   myStore.dispatch actions.todosPatch
     id: id01
     todo: 'hello'
+    isCompleted: 'true'
       
   # myStore.dispatch actions.todosSave
   #   todo: todo

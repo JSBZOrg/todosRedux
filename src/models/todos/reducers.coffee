@@ -71,17 +71,10 @@ export default
     state.reduce (result, current, _index, array) => 
       if current.id is id
         temp = JSON.parse JSON.stringify array
-        temp.splice _index, 1
+        temp[_index].todo = todo
     , null
 
-    [
-      {
-        id: id
-        name: todo
-        isCompleted: isCompleted
-      }
-      temp...
-    ]
+    temp
     
   remove:(
     state
