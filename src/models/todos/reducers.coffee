@@ -72,6 +72,7 @@ export default
       if current.id is id
         temp = JSON.parse JSON.stringify array
         temp[_index].todo = todo
+        temp[_index].isCompleted = isCompleted
     , null
 
     temp
