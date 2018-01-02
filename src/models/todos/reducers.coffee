@@ -12,21 +12,6 @@ export default
   ) =>
     todo
 
-  create:(
-    state
-    {
-      payload: {
-        todo: todo
-      }
-    }
-  ) =>
-    [
-      state...
-      id: uuidFunc()
-      todo: todo
-      isCompleted: false
-    ]
-  
   # create:(
   #   state
   #   {
@@ -37,8 +22,23 @@ export default
   # ) =>
   #   [
   #     state...
-  #     todo
+  #     id: uuidFunc()
+  #     todo: todo
+  #     isCompleted: false
   #   ]
+  
+  create:(
+    state
+    {
+      payload: {
+        todo: todo
+      }
+    }
+  ) =>
+    [
+      state...
+      todo
+    ]
 
   removeOne:(
     state
@@ -71,11 +71,13 @@ export default
       if current.id is id
         temp = JSON.parse JSON.stringify array
         temp.splice _index, 1
-      temp
     , null
 
     [
-      todo
+      {
+        id: id
+        name: todo
+      }
       temp...
     ]
     

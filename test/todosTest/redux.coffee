@@ -52,26 +52,26 @@ reducersFuc = ->
   id03 = uuidFunc()
   
   myStore.dispatch actions.todosCreate
-    todo: 
+    todo:
       id: id01
       name: 'oo'
 
-  myStore.dispatch actions.todosCreate
-    todo: 
-      id: id02
-      name: 'oooopp'
+  # myStore.dispatch actions.todosCreate
+  #   todo:
+  #     id: id02
+  #     name: 'oooopp'
 
-  myStore.dispatch actions.todosCreate
-    todo: 
-      id: id03
-      name: 'ooll'
+  # myStore.dispatch actions.todosCreate
+  #   todo: 
+  #     id: id03
+  #     name: 'ooll'
 
-  myStore.dispatch actions.todosRemoveOne
-    id: id02
+  # myStore.dispatch actions.todosRemoveOne
+  #   id: id02
 
-  # myStore.dispatch actions.todosPatch
-  #   id: id
-  #   todo: todo
+  myStore.dispatch actions.todosPatch
+    id: id01
+    todo: 'hello'
       
   # myStore.dispatch actions.todosSave
   #   todo: todo
