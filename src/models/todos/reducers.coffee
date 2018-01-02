@@ -63,6 +63,7 @@ export default
       payload: {
         id: id
         todo: todo
+        isCompleted: isCompleted
       }
     }
   ) =>
@@ -77,6 +78,7 @@ export default
       {
         id: id
         name: todo
+        isCompleted: isCompleted
       }
       temp...
     ]
