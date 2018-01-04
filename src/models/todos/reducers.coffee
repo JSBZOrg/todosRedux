@@ -67,8 +67,8 @@ export default
       }
     }
   ) =>
-    temp = []           
-    state.reduce (result, current, _index, array) => 
+    temp = []       
+    state.reduce (result, current, _index, array) =>
       if current.id is id
         temp = JSON.parse JSON.stringify array
         temp[_index].todo = todo

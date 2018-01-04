@@ -13,7 +13,6 @@ export default
     format: 'cjs'
 
   plugins: [
-
     alias
       resolve: [
         '.coffee'

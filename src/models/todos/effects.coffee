@@ -19,7 +19,7 @@ export default ({
       yield put 
         type: type.save
         payload: {
-          data
+          todo: data
         }
       yield payload.callback.success data
     else
@@ -59,7 +59,7 @@ export default ({
       yield put 
         type: type.save
         payload: {
-          data
+          todo: data
         }
       yield payload.callback.success data
     else
@@ -77,7 +77,7 @@ export default ({
       yield put 
         type: type.save
         payload: {
-          data
+          todo: data
         }
       yield payload.callback.success data
     else
@@ -96,7 +96,7 @@ export default ({
     yield put 
       type: type.save
       payload: {
-        data
+        todo: data
       }
     return 
 
