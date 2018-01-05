@@ -22,7 +22,7 @@
     "cfx.redux-actions": "^0.0.1",
     "cfx.redux-saga": "^0.0.1",
     "cfx.redux-types": "^0.0.4",
-    "cfx.rollup-plugin-coffee2": "^0.1.0",
+    "cfx.rollup-plugin-coffee2": "^0.1.4",
     "dva": "^2.0.4",
     "is-equal": "^1.5.5",
     "rollup": "^0.51.1",

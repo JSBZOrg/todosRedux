@@ -9,6 +9,6 @@ export default toActionsTypes {
   'TODOS_PATCH'
   'TODOS_PATCH_ONE'
   'TODOS_REMOVE'
-  'TODOS_REMOVE_ONE'  
+  'TODOS_REMOVE_ONE'
   'TODOS_RELOAD'
 }

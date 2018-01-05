@@ -1,6 +1,6 @@
 import dd from 'ddeyes'
 import config from '../../services/config'
-import services from '../../services'
+import * as services from '../../services'
 import toolFunc from '../../utils/helper'
 
 export default ({
