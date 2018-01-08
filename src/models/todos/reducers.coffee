@@ -26,7 +26,7 @@ export default
       todo: todo
       isCompleted: false
     ]
-  
+
   # create:(
   #   state
   #   {
@@ -57,7 +57,7 @@ export default
     , state
 
           
-  patch:(
+  patchOne:(
     state
     {
       payload: {

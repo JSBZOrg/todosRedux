@@ -13,7 +13,7 @@ todos = handleActions
   TODOS_CREATE: todosReducers.create
   TODOS_FETCH_ONE: todosReducers.fetchOne
   TODOS_FETCH: todosReducers.fetch
-  TODOS_PATCH: todosReducers.patch
+  TODOS_PATCH_ONE: todosReducers.patchOne
   TODOS_REMOVE_ONE: todosReducers.removeOne
   TODOS_REMOVE: todosReducers.remove
   

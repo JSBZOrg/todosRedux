@@ -71,7 +71,7 @@ reducersFuc = ->
   # myStore.dispatch actions.todosRemoveOne
   #   id: id02
 
-  myStore.dispatch actions.todosPatch
+  myStore.dispatch actions.todosPatchOne
     id: id01
     todo: 'hello'
     isCompleted: 'true'
@@ -150,7 +150,7 @@ getIds = (data) ->
     ]
   , []
 
-export default classRedux = {
+export default {
   createFuc
   fetchFuc
   patchFuc

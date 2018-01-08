@@ -126,7 +126,3 @@ export default config = do ->
         uri: Todos.remove.uri.lc
         headers: header.todos.base
         method: Todos.remove.method
-
-
-
-

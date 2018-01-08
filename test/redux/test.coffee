@@ -1,7 +1,6 @@
 import dd from 'ddeyes'
 import 'shelljs/make'
 import todosRedux from '../todosTest/redux'
-# import * as services from '../../src/services'
 
 target.all = ->
   dd 'Hello todosApp ！'
