@@ -40,7 +40,6 @@ export default ({
         type: type.save
         payload: {
           todo: data
-          # data
         }
       yield payload.callback.success data
     else
