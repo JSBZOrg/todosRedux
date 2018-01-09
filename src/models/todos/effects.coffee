@@ -12,14 +12,20 @@ export default ({
     }
     { put }
   ) ->
+    todo = {
+      payload.data...
+      isCompleted: false
+    }
     data = yield services.lc.create toolFunc
     ,
-      payload.data
+      todo
+    results = yield services.lc.reload toolFunc
+    todo = results.results
     if data?
       yield put 
         type: type.save
         payload: {
-          todo: data
+          todo: todo
         }
       yield payload.callback.success data
     else
@@ -32,21 +38,25 @@ export default ({
     }
     { put }
   ) ->
-    data = yield services.lc.fetch toolFunc
-    ,
-      payload.data
+    temp = []
+    data = yield services.lc.reload toolFunc
+    data.results.reduce (r, c, index, array) =>
+      if c.isCompleted is payload.data.isCompleted
+        temp.push array[index]
+      temp
+    , []
     if data?
       yield put 
         type: type.save
         payload: {
-          todo: data
+          todo: temp
         }
       yield payload.callback.success data
     else
       yield payload.callback.fail 'fetch error'
     return
   
-  patch: (
+  update: (
     {
       payload
     }
@@ -55,18 +65,20 @@ export default ({
     data = yield services.lc.patch toolFunc
     ,
       payload.data
+    results = yield services.lc.reload toolFunc 
+    todo = results.results 
     if data?
       yield put 
         type: type.save
         payload: {
-          todo: data
+          todo: todo
         }
       yield payload.callback.success data
     else
       yield payload.callback.fail 'patch error'
     return
   
-  reload: (
+  fetchAll: (
     {
       payload
     }
@@ -84,7 +96,7 @@ export default ({
       yield payload.callback.fail 'reload error'
     return
 
-  remove: (
+  delete: (
     {
       payload
     }
@@ -93,10 +105,12 @@ export default ({
     data = yield services.lc.remove toolFunc
     ,
       payload
+    results = yield services.lc.reload toolFunc 
+    todo = results.results 
     yield put 
       type: type.save
       payload: {
-        todo: data
+        todo: todo
       }
     return 
 

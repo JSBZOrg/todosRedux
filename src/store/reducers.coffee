@@ -9,15 +9,12 @@ initialState =
 
 todos = handleActions
 
-  TODOS_SAVE: todosReducers.save
-  TODOS_CREATE: todosReducers.create
-  TODOS_FETCH_ONE: todosReducers.fetchOne
-  TODOS_FETCH: todosReducers.fetch
-  TODOS_PATCH_ONE: todosReducers.patchOne
-  TODOS_REMOVE_ONE: todosReducers.removeOne
-  TODOS_REMOVE: todosReducers.remove
+  TODO_SAVE: todosReducers.save
+  TODO_PATCH: todosReducers.patch
+  TODO_RELOAD: todosReducers.reload
+  TODO_REMOVE: todosReducers.remove
+  TODO_REMOVE_ALL: todosReducers.removeAll
   
-
 , initialState.todos
 
 export {

@@ -1,17 +1,18 @@
-import { sagaEffects } from 'cfx.redux-saga'
 import dd from 'ddeyes'
+import { sagaEffects } from 'cfx.redux-saga'
 import constants from './constants'
 import config from '../services/config'
 import getTodosSagas from '../models/todos/effects'
 
 todosSagas = getTodosSagas
   type:
-    save: 'TODOS_SAVE'
-    fetch: 'TODOS_FETCH'
-    remove: 'TODOS_REMOVE'
-    patch: 'TODOS_PATCH'
-    create: 'TODOS_CREATE'
-    reload: 'TODOS_RELOAD'
+    save: 'TODO_SAVE'
+    create: 'TODO_CREATE'
+    update: 'TODO_UPDATE'
+    delete: 'TODO_DELETE'
+    deleteAll: 'TODO_DELETE_ALL'
+    fetch: 'TODO_FETCH'
+    fetchAll: 'TODO_FETCH_ALL'
   
 {
   put
@@ -19,33 +20,16 @@ todosSagas = getTodosSagas
 } = sagaEffects
 
 {
-  TODOS_FETCH
-  TODOS_REMOVE
-  TODOS_PATCH
-  TODOS_CREATE
-  TODOS_RELOAD
+  TODO_SAVE
+  TODO_CREATE
+  TODO_UPDATE
+  TODO_DELETE
+  TODO_DELETE_ALL
+  TODO_FETCH
+  TODO_FETCH_ALL
 } = constants.types
 
 todos =
-
-  fetch: (action) ->
-    action.payload = {} unless action.payload?
-    todosSagas.fetch action
-    , {
-      put
-    }
-
-  remove: (action) ->
-    todosSagas.remove action
-    , {
-      put
-    }
-
-  patch: (action) ->
-    todosSagas.patch action
-    , {
-      put
-    }
 
   create: (action) ->
     todosSagas.create action
@@ -53,26 +37,53 @@ todos =
       put
     }
 
-  reload: (action) ->
-    todosSagas.reload action
+  update: (action) ->
+    todosSagas.update action
+    , {
+      put
+    }
+  
+  delete: (action) ->
+    todosSagas.delete action
+    , {
+      put
+    }
+
+  deleteAll: (action) ->
+    todosSagas.deleteAll action
+    , {
+      put
+    }
+
+  fetch: (action) ->
+    todosSagas.fetch action
+    , {
+      put
+    }
+
+  fetchAll: (action) ->
+    todosSagas.fetchAll action
     , {
       put
     }
 
 export default [
   ->
-    yield takeLatest TODOS_FETCH
-    , todos.fetch
-  ->
-    yield takeLatest TODOS_REMOVE
-    , todos.remove
-  ->
-    yield takeLatest TODOS_PATCH
-    , todos.patch
-  ->
-    yield takeLatest TODOS_CREATE
+    yield takeLatest TODO_CREATE
     , todos.create
   ->
-    yield takeLatest TODOS_RELOAD
-    , todos.reload
+    yield takeLatest TODO_UPDATE
+    , todos.update
+  ->
+    yield takeLatest TODO_DELETE
+    , todos.delete
+  ->
+    yield takeLatest TODO_DELETE_ALL
+    , todos.deleteAll
+  ->
+    yield takeLatest TODO_FETCH
+    , todos.fetch
+  ->
+    yield takeLatest TODO_FETCH_ALL
+    , todos.fetchAll
 ]

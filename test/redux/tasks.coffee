@@ -30,59 +30,9 @@ myStore = getStore {
     async: subscriber
 }
 
-# static 
-staticFuc = ->
-  dd {
-    constants
-    actions
-  }
 
-# reducers 
-reducersFuc = ->
 
-  myStore = getStore {
-    appName: 'todosApp'
-    reducers
-    subscriber:
-      sync: ->
-        dd myStore.getState()
-  }
-  id01 = uuidFunc()
-  id02 = uuidFunc()
-  id03 = uuidFunc()
-  
-  myStore.dispatch actions.todosCreate
-    todo:
-      id: id01
-      todo: 'oo'
-      isCompleted: true
 
-  myStore.dispatch actions.todosCreate
-    todo:
-      id: id02
-      todo: 'oooopp'
-      isCompleted: false      
-
-  # myStore.dispatch actions.todosCreate
-  #   todo: 
-  #     id: id03
-  #     name: 'ooll'
-
-  # myStore.dispatch actions.todosRemoveOne
-  #   id: id02
-
-  myStore.dispatch actions.todosPatchOne
-    id: id01
-    todo: 'hello'
-    isCompleted: 'true'
-      
-  # myStore.dispatch actions.todosSave
-  #   todo: todo
-
-  # myStore.dispatch actions.todosRemove
-  #   todo: []
-
-  myStore.onsubscribe()
   
 # create class  
 createFuc = ->
