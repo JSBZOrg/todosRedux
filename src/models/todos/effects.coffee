@@ -22,7 +22,7 @@ export default ({
     results = yield services.lc.reload toolFunc
     todo = results.results
     if data?
-      yield put 
+      yield put
         type: type.save
         payload: {
           todo: todo
@@ -90,11 +90,12 @@ export default ({
     { put }
   ) ->
     data = yield services.lc.reload toolFunc
+    todo = data.results
     if data?
       yield put 
         type: type.save
         payload: {
-          todo: data
+          todo: todo
         }
     #   yield payload.callback.success data
     # else
