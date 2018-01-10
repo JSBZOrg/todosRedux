@@ -39,7 +39,7 @@ target.sagas = =>
   data = await todoCreate '陈奕迅'
   data1 = await todoCreate 'haoya'
   await todoFetch true
-  await todoUpdate data, '陈奕迅', true
+  await todoUpdate data.objectId, '陈奕迅', true
   await todoFetchAll()
   await todoFetch false
   await todoDelete data1.objectId

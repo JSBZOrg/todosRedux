@@ -13,7 +13,7 @@ export default ({
     { put }
   ) ->
     todo = {
-      payload.data...
+      todo: payload.todo
       isCompleted: false
     }
     data = yield services.lc.create toolFunc
@@ -41,7 +41,7 @@ export default ({
     temp = []
     data = yield services.lc.reload toolFunc
     data.results.reduce (r, c, index, array) =>
-      if c.isCompleted is payload.data.isCompleted
+      if c.isCompleted is payload.isCompleted
         temp.push array[index]
       temp
     , []
@@ -62,9 +62,14 @@ export default ({
     }
     { put }
   ) ->
+    params = {
+      objectId: payload.objectId
+      todo: payload.todo
+      isCompleted: payload.isCompleted
+    }
     data = yield services.lc.patch toolFunc
     ,
-      payload.data
+      params
     results = yield services.lc.reload toolFunc 
     todo = results.results 
     if data?

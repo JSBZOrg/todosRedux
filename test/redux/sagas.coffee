@@ -18,8 +18,6 @@ subscriber = (
 ) =>
   return dd myStore.getState() if not isEqual prevState, nextState
   
-  
-  
 myStore = getStore {
   appName: 'todosApp'
   reducers
@@ -31,8 +29,7 @@ myStore = getStore {
 todoCreate = (todo) =>
   new Promise (resolve, reject) =>
     myStore.dispatch actions.todoCreate 
-      data:
-        todo: todo
+      todo: todo
       callback:
         success: (data) =>
           resolve data
@@ -42,21 +39,19 @@ todoCreate = (todo) =>
 todoFetch = (isCompleted) =>
   new Promise (resolve, reject) =>
     myStore.dispatch actions.todoFetch
-      data: 
-        isCompleted: isCompleted
+      isCompleted: isCompleted
       callback:
         success: (data) =>
           resolve data
         fail: (data) =>
           reject data
 
-todoUpdate = (data, todo, isCompleted) =>
+todoUpdate = (objectId, todo, isCompleted) =>
   new Promise (resolve, reject) =>
     myStore.dispatch actions.todoUpdate
-      data:
-        objectId: data.objectId
-        todo: todo
-        isCompleted: isCompleted
+      objectId: objectId
+      todo: todo
+      isCompleted: isCompleted
       callback:
         success: (data) =>
           resolve data
