@@ -12,13 +12,13 @@ export default ({
     }
     { put }
   ) ->
-    todo = {
+    params = {
       todo: payload.todo
       isCompleted: false
     }
     data = yield services.lc.create toolFunc
     ,
-      todo
+      params
     results = yield services.lc.reload toolFunc
     todo = results.results
     if data?
@@ -27,9 +27,9 @@ export default ({
         payload: {
           todo: todo
         }
-      yield payload.callback.success data
-    else
-      yield payload.callback.fail 'create error'
+    #   yield payload.callback.success data
+    # else
+    #   yield payload.callback.fail 'create error'
     return
 
   fetch: (
@@ -51,9 +51,9 @@ export default ({
         payload: {
           todo: temp
         }
-      yield payload.callback.success data
-    else
-      yield payload.callback.fail 'fetch error'
+    #   yield payload.callback.success data
+    # else
+    #   yield payload.callback.fail 'fetch error'
     return
   
   update: (
@@ -78,9 +78,9 @@ export default ({
         payload: {
           todo: todo
         }
-      yield payload.callback.success data
-    else
-      yield payload.callback.fail 'patch error'
+    #   yield payload.callback.success data
+    # else
+    #   yield payload.callback.fail 'patch error'
     return
   
   fetchAll: (
@@ -96,9 +96,9 @@ export default ({
         payload: {
           todo: data
         }
-      yield payload.callback.success data
-    else
-      yield payload.callback.fail 'reload error'
+    #   yield payload.callback.success data
+    # else
+    #   yield payload.callback.fail 'reload error'
     return
 
   delete: (
