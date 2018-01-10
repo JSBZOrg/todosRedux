@@ -3,6 +3,7 @@ import uuidFunc from '../../utils/randomId'
 
 export default
   ## REDUCE  save  patch  reload  remove  removeAll
+  ## SAGAS  save
   save: (
     state
     {
@@ -75,33 +76,3 @@ export default
     }
   ) =>
     []
-
-  # ## SAGAS  create  update  delete  deleteAll  fetch  fetchAll
-  # create: (
-  #   state
-  #   {
-  #     payload: {
-  #       todo: todo
-  #     }
-  #   }
-  # ) =>
-  #   dd todo
-  #   dd state
-  #   state
-  #   # [
-  #   #   state...
-  #   #   todo
-  #   # ]
-
-  # update: (
-  #   state
-  #   {
-  #     payload: {
-  #       todo: todo
-  #     }
-  #   }
-  # ) =>
-  #   [
-  #     state...
-  #     todo
-  #   ]

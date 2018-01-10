@@ -29,7 +29,6 @@ staticFuc = =>
 todoSave = =>
   myStore.dispatch actions.todoSave
     todo: '测试一'
-    isCompleted: true
 
 todoPatch = =>
   myStore.dispatch actions.todoPatch
